@@ -123,7 +123,7 @@ p {
     border: 1px solid #F0F0F0;
     height: 300px;
     position: relative;
-    margin: 20px auto 60px auto;
+    margin: 20px auto 80px auto;
 }
 .example .item {
     position: absolute;
@@ -136,6 +136,51 @@ p {
     border-radius: 5px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     background-image: linear-gradient( 135deg, #F761A1 10%, #AC46C8 100%);
+}
+
+.demo {
+    height: 300px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container .state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #F0F0F0;
+    padding: 20px;
+    width: 100px;
+    height: auto;
+}
+
+.container .state p {
+    margin: 0;
+    text-align: center;
+}
+
+.container .state p.visibility {
+    font-size: 1.5em;
+}
+
+.demo h2 {
+    margin: 20px 0 !important;
+    text-align: center;
+}
+
+.demo .element {
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
+    margin: 550px auto;
+    transform: translate(-600px, 0);
+    opacity: 0;
+    transition: 0.5s transform ease-out, 0.5s opacity ease-out;
+}
+
+.demo .element.show {
+    transform: translate(0, 0);
+    opacity: 1;
 }
 
 .footer {

@@ -33,8 +33,8 @@ Name | Default value | Description
 -----|---------------|------------
 callback|Null|Callback to execute on visibility change. Callback receive **2 parameters**, the DOMElement and the Visibility (boolean). **Required**
 selector|Null|Element selector. **Required**
-opts.marge|Null|Marge to expand or reduce element detection size
-opts.container|window|Container selector within detection should happen
+opts.marge|Null|Marge to expand or reduce element detection size.
+opts.container|window|Container selector within detection should happen.
 
 ## API
 
@@ -42,7 +42,7 @@ Here is the list of available APIs :
 
 Name|Description
 ----|-----------
-add(selector, callback, opts)|Add en element to detect into a instance of ViewportDetector
+add(selector, callback, opts)|Add en element to detect into a instance of ViewportDetector.
 
 ## Example
 
