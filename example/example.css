@@ -82,8 +82,7 @@ p {
 
 .header {
     width: 100%;
-    height: 80vh;
-    min-height: 490px;
+    height: 550px;
     background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
 }
 

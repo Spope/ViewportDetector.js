@@ -22,4 +22,12 @@
     height: 200px;
     background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
     margin: 550px auto;
+    transform: translate(-600px, 0);
+    opacity: 0;
+    transition: 0.5s transform ease-out, 0.5s opacity ease-out;
+}
+
+.element.show {
+    transform: translate(0, 0);
+    opacity: 1;
 }

@@ -17,6 +17,11 @@
         <script type="text/javascript">
 var cb = function(el, visibility) {
     document.querySelector('.visibility').innerHTML = visibility ? 'true' : 'false';
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
 }
         var example = new ViewportDetector('.element', cb);
         </script>

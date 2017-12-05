@@ -24,12 +24,27 @@
 
         <script type="text/javascript">
             var cb1 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
     document.querySelector('.visibility_1').innerHTML = visibility ? 'true' : 'false';
 }
 var cb2 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
     document.querySelector('.visibility_2').innerHTML = visibility ? 'true' : 'false';
 }
 var cb3 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
     document.querySelector('.visibility_3').innerHTML = visibility ? 'true' : 'false';
 }
 

@@ -89,6 +89,11 @@
             <p class="section_content">Default parameters : </p>
             <div class="pre_wrapper">
                 <pre><code class="javascript">var cb = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
     document.querySelector('.visibility').innerHTML = visibility ? 'true' : 'false';
 }
 var example = new ViewportDetector('.element', cb);</code></pre>
