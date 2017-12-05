@@ -31,7 +31,7 @@ Here is the list of available parameters :
 
 Name | Default value | Description
 -----|---------------|------------
-callback|Null|Callback to execute on visibility change. Callback receive **2 parameters**, the DOMElement and the Visibility (boolean).**Required**
+callback|Null|Callback to execute on visibility change. Callback receive **2 parameters**, the DOMElement and the Visibility (boolean). **Required**
 selector|Null|Element selector. **Required**
 opts|Null|Options. Currenlty only **marge** is avaliable.
 
@@ -45,7 +45,7 @@ add(selector, callback, opts)|Add en element to detect into a instance of Viewpo
 
 ## Example
 
-[See website](https://projects.spope.fr/layout/example/index.html)
+[See website](https://projects.spope.fr/viewport/example/index.html)
 
 ## License
 
