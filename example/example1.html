@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="./example.css" media="screen" rel="stylesheet" type="text/css"/>
+        <link href="./iframe.css" media="screen" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="state">
+            <p>Visibility</p>
+            <p class="visibility">false</p>
+        </div>
+
+        <div class="element"></div>
+
+        <script src="../src/viewportdetector.js"></script>
+
+        <script type="text/javascript">
+var cb = function(el, visibility) {
+    document.querySelector('.visibility').innerHTML = visibility ? 'true' : 'false';
+}
+        var example = new ViewportDetector('.element', cb);
+        </script>
+    </body>
+</html>

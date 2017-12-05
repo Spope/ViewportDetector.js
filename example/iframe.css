@@ -1,0 +1,25 @@
+.state {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #F0F0F0;
+    padding: 20px;
+    width: 100px;
+    height: auto;
+}
+
+.state p {
+    margin: 0;
+    text-align: center;
+}
+
+.state p.visibility {
+    font-size: 1.5em;
+}
+
+.element {
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
+    margin: 550px auto;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+        <title>ViewportDetector.js</title>
+        <meta name="description" content="Javascript viewport element visibility library">
+        <meta name="google" content="notranslate">
+        <link href="./example.css" media="screen" rel="stylesheet" type="text/css"/>
+        <link href="./higlight/default.css" media="screen" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <section class="header">
+            <div class="header_content">
+                <img src="./logo.png" width="100" height="100" />
+                <h1>ViewportDetector.js</h1>
+                <p class="legend">Javascript viewport element visibility library</p>
+                <p><a class="github-button" href="https://github.com/Spope/ViewportDetector.js/" data-size="large" aria-label="Download Spope/ViewportDetector.js on GitHub">Download</a></p>
+            </div>
+        </section>
+        <section class="description">
+            <div class="description_content">
+                <p class="section_content">ViewportDetector is a <strong>lightweight</strong> (1kb Gzipped) dependancy free library to detect if an element is in the viewport or not. It use <strong>requestAnimationFrame</strong> API to be without any impact on the performance.</p>
+
+                <h2 class="section_content">Installation</h2>
+                <p class="section_content">Just include the minified version of ViewportDetector.js on your website :</p>
+                <div class="pre_wrapper">
+                    <pre><code class="html">&lt;script src=&quot;viewportdetector/build/viewportdetector.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+                </div>
+
+                <h2 class="section_content">Usage</h2>
+                <p class="section_content">To use viewport detector, create a new instance : </p>
+
+                <div class="pre_wrapper">
+                    <pre><code class="javascript">var detector = new ViewportDetector({
+    selector: '.element',
+    callback: myCallback
+}); </code></pre>
+                </div>
+
+                <h2 class="section_content">Parameters</h2>
+
+                <p class="section_content">Here is the list of available parameters : </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Default value</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>callback</td>
+                        <td>Null</td>
+                        <td>Callback to execute on visibility change. Callback receive <strong>2 parameters</strong>, the DOMElement and the Visibility (boolean).<strong>Required</strong></td>
+                    </tr>
+                    <tr>
+                        <td>selector</td>
+                        <td>Null</td>
+                        <td>Container selector. <strong>Required</strong></td>
+                    </tr>
+                    <tr>
+                        <td>opts</td>
+                        <td>Null</td>
+                        <td>Options. Currenlty only <strong>marge</strong> is avaliable.</td>
+                    </tr>
+                </table>
+
+                <h2 class="section_content">API</h2>
+
+                <p class="section_content">Here is the list of available APIs : </p>
+                <table>
+                    <thead>
+                        <td>Name</td>
+                        <td>Description</td>
+                    </thead>
+                    <tr>
+                        <td>add(selector, callback, opts)</td>
+                        <td>Add en element to detect into a instance of ViewportDetector</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2 class="section_content">Example</h2>
+            <p class="section_content">Default parameters : </p>
+            <div class="pre_wrapper">
+                <pre><code class="javascript">var cb = function(el, visibility) {
+    document.querySelector('.visibility').innerHTML = visibility ? 'true' : 'false';
+}
+var example = new ViewportDetector('.element', cb);</code></pre>
+            </div>
+
+            <iframe src="example1.html" title="Example 2"></iframe>
+
+            <p class="section_content">Marge parameter, element is detect 100px before appearing into viewport : </p>
+            <div class="pre_wrapper">
+                <pre><code class="javascript">var example = new ViewportDetector('.element', cb, {marge: 100});</code></pre>
+            </div>
+
+            <iframe src="example2.html" title="Example 2"></iframe>
+
+            <p class="section_content">Multiple elements : </p>
+            <div class="pre_wrapper">
+                <pre><code class="javascript">var example = new ViewportDetector([
+    {
+        selector: '.element_1',
+        callback: cb1
+    },
+    {
+        selector: '.element_2',
+        callback: cb2,
+        opts: {marge: 100}
+    }
+]);
+
+example.add('.element_3', cb3);</code></pre>
+            </div>
+
+            <iframe src="example3.html" title="Example 3"></iframe>
+
+        </section>
+
+        <section class="footer">
+            <p class="section_content">Made by <a href="https://spope.fr" title="spope.fr">Spope</a> - See on <a href="https://github.com/Spope/MiniMasonry.js" title="Open Github repository">Github</a> - Feel free to contact me on <a href="https://twitter.com/spopila" title="Spopila's Twitter account">Twitter</a></p>
+        </section>
+
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="./higlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+    </body>
+</html>
+
+
