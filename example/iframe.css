@@ -1,5 +1,11 @@
-.state {
-    position: fixed;
+.demo {
+    height: 300px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container .state {
+    position: absolute;
     top: 0;
     right: 0;
     background: #F0F0F0;
@@ -8,21 +14,21 @@
     height: auto;
 }
 
-.state p {
+.container .state p {
     margin: 0;
     text-align: center;
 }
 
-.state p.visibility {
+.container .state p.visibility {
     font-size: 1.5em;
 }
 
-h2 {
+.demo h2 {
     margin: 20px 0 !important;
     text-align: center;
 }
 
-.element {
+.demo .element {
     width: 200px;
     height: 200px;
     background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
@@ -32,7 +38,7 @@ h2 {
     transition: 0.5s transform ease-out, 0.5s opacity ease-out;
 }
 
-.element.show {
+.demo .element.show {
     transform: translate(0, 0);
     opacity: 1;
 }

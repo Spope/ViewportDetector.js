@@ -8,6 +8,7 @@
         <meta name="description" content="Javascript viewport element visibility library">
         <meta name="google" content="notranslate">
         <link href="./example.css" media="screen" rel="stylesheet" type="text/css"/>
+        <link href="./iframe.css" media="screen" rel="stylesheet" type="text/css"/>
         <link href="./higlight/default.css" media="screen" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -17,12 +18,12 @@
                 <img src="./logo.png" width="100" height="100" />
                 <h1>ViewportDetector.js</h1>
                 <p class="legend">Javascript viewport element visibility library</p>
-                <p><a class="github-button" href="https://github.com/Spope/ViewportDetector.js/" data-size="large" aria-label="Download Spope/ViewportDetector.js on GitHub">Download</a></p>
+                <div><a class="github-button" href="https://github.com/Spope/ViewportDetector.js/" data-size="large" aria-label="Download Spope/ViewportDetector.js on GitHub">Download</a></div>
             </div>
         </section>
         <section class="description">
             <div class="description_content">
-                <p class="section_content">ViewportDetector is a <strong>lightweight</strong> (1kb Gzipped) dependancy free library to detect if an element is in the viewport or not. It use <strong>requestAnimationFrame</strong> API to be without any impact on the performance.</p>
+                <p class="section_content">ViewportDetector is a <strong>lightweight</strong> (1kb Gzipped) dependancy free library to detect if an element is show in the viewport (or another container) or not. It use <strong>requestAnimationFrame</strong> API to be without any impact on the performance.</p>
 
                 <h2 class="section_content">Installation</h2>
                 <p class="section_content">Just include the minified version of ViewportDetector.js on your website :</p>
@@ -62,9 +63,14 @@
                         <td>Element selector. <strong>Required</strong></td>
                     </tr>
                     <tr>
-                        <td>opts</td>
+                        <td>opts.marge</td>
                         <td>Null</td>
-                        <td>Options. Currenlty only <strong>marge</strong> is avaliable.</td>
+                        <td>Marge to expand or reduce element detection size</td>
+                    </tr>
+                    <tr>
+                        <td>opts.container</td>
+                        <td>window</td>
+                        <td>Container selector within detection should happen</td>
                     </tr>
                 </table>
 
@@ -96,36 +102,75 @@
     }
     document.querySelector('.visibility').innerHTML = visibility ? 'true' : 'false';
 }
-var example = new ViewportDetector('.element', cb);</code></pre>
+var example = new ViewportDetector('.element', cb, {container: '.demo1'});</code></pre>
             </div>
 
-            <iframe src="example1.html" title="Example 2"></iframe>
+            <div class="container">
+                <div class="state">
+                    <p>Visibility</p>
+                    <p class="visibility1">false</p>
+                </div>
+                <div class="demo demo1">
+                    <h2>Scroll down ...</h2>
+                    <div class="element element1"></div>
+                </div>
+            </div>
 
             <p class="section_content">Marge parameter, element is detect 100px before appearing into viewport : </p>
             <div class="pre_wrapper">
-                <pre><code class="javascript">var example = new ViewportDetector('.element', cb, {marge: 100});</code></pre>
+                <pre><code class="javascript">var example = new ViewportDetector('.element', cb, {marge: 100, container: '.demo2'});</code></pre>
             </div>
 
-            <iframe src="example2.html" title="Example 2"></iframe>
+            <div class="container">
+                <div class="state">
+                    <p>Visibility</p>
+                    <p class="visibility2">false</p>
+                </div>
+                <div class="demo demo2">
+                    <h2>Scroll down ...</h2>
+                    <div class="element element2"></div>
+                </div>
+            </div>
 
             <p class="section_content">Multiple elements : </p>
             <div class="pre_wrapper">
                 <pre><code class="javascript">var example = new ViewportDetector([
     {
         selector: '.element_1',
-        callback: cb1
+        callback: cb1,
+        opts: {container: '.demo3'}
     },
     {
         selector: '.element_2',
         callback: cb2,
-        opts: {marge: 100}
+        opts: {
+            marge: 100,
+            container: '.demo3'
+        }
     }
 ]);
 
-example.add('.element_3', cb3);</code></pre>
+example.add('.element_3', cb3, {container: '.demo3'});</code></pre>
             </div>
 
-            <iframe src="example3.html" title="Example 3"></iframe>
+            <div class="container">
+                <div class="state">
+                    <p>Element 1</p>
+                    <p class="visibility visibility_1">false</p>
+
+                    <p>Element 2</p>
+                    <p class="visibility visibility_2">false</p>
+
+                    <p>Element 3</p>
+                    <p class="visibility visibility_3">false</p>
+                </div>
+                <div class="demo demo3">
+                    <h2>Scroll down ...</h2>
+                    <div class="element element_1"></div>
+                    <div class="element element_2"></div>
+                    <div class="element element_3"></div>
+                </div>
+            </div>
 
         </section>
 
@@ -135,8 +180,79 @@ example.add('.element_3', cb3);</code></pre>
 
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="./higlight/highlight.pack.js"></script>
+        <script src="../src/viewportdetector.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
 
+<script type="text/javascript">
+var cb = function(el, visibility) {
+    document.querySelector('.visibility1').innerHTML = visibility ? 'true' : 'false';
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
+}
+var example = new ViewportDetector('.element1', cb, {container: '.demo1'});
+
+//
+
+var example2 = new ViewportDetector('.element2', function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
+    document.querySelector('.visibility2').innerHTML = visibility ? 'true' : 'false';
+}, {marge: 100, container: '.demo2'});
+
+//
+
+var cb1 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
+    document.querySelector('.visibility_1').innerHTML = visibility ? 'true' : 'false';
+}
+var cb2 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
+    document.querySelector('.visibility_2').innerHTML = visibility ? 'true' : 'false';
+}
+var cb3 = function(el, visibility) {
+    if (visibility) {
+        el.classList.add('show');
+    } else {
+        el.classList.remove('show');
+    }
+    document.querySelector('.visibility_3').innerHTML = visibility ? 'true' : 'false';
+}
+
+
+var example = new ViewportDetector([
+    {
+        selector: '.element_1',
+        callback: cb1,
+        opts: {
+            container: '.demo3'
+        }
+    },
+    {
+        selector: '.element_2',
+        callback: cb2,
+        opts: {
+            marge: 100,
+            container: '.demo3'
+        }
+    }
+]);
+
+example.add('.element_3', cb3, {container: '.demo3'});
+</script>
     </body>
 </html>
 

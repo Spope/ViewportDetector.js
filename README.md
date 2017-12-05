@@ -4,7 +4,7 @@
 
 Javascript viewport element visibility library
 
-ViewportDetector is a **lightweight** (1kb Gzipped) dependancy free library to detect if an element is in the viewport or not. It use **requestAnimationFrame** API to be without any impact on the performance.
+ViewportDetector is a **lightweight** (1kb Gzipped) dependancy free library to detect if an element is shown in the viewport (or another container) or not. It use **requestAnimationFrame** API to be without any impact on the performance.
 
 ## Installation
 
@@ -33,7 +33,8 @@ Name | Default value | Description
 -----|---------------|------------
 callback|Null|Callback to execute on visibility change. Callback receive **2 parameters**, the DOMElement and the Visibility (boolean). **Required**
 selector|Null|Element selector. **Required**
-opts|Null|Options. Currenlty only **marge** is avaliable.
+opts.marge|Null|Marge to expand or reduce element detection size
+opts.container|window|Container selector within detection should happen
 
 ## API
 
