@@ -17,6 +17,11 @@
     font-size: 1.5em;
 }
 
+h2 {
+    margin: 20px 0 !important;
+    text-align: center;
+}
+
 .element {
     width: 200px;
     height: 200px;
