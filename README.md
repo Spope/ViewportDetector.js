@@ -1,4 +1,4 @@
-<p align="center"><a href="https://projects.spope.fr/viewport/example/index.html" target="_blank"><img width="100" height="100" src="https://raw.githubusercontent.com/Spope/ViewportDetector.js/master/example/icon.png"></a></p>
+<p align="center"><a href="https://spope.github.io/ViewportDetector.js/" target="_blank"><img width="100" height="100" src="https://spope.github.io/ViewportDetector.js/icon.png"></a></p>
 
 # ViewportDetector.js
 
@@ -46,7 +46,7 @@ add(selector, callback, opts)|Add en element to detect into a instance of Viewpo
 
 ## Example
 
-[See website](https://projects.spope.fr/viewport/example/index.html)
+[See website](https://spope.github.io/ViewportDetector.js/)
 
 ## License
 
